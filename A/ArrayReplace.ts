@@ -14,3 +14,21 @@ function ArrayToReplace(
 }
 
 console.log(ArrayToReplace([1, 2, 1], 1, 3));
+
+function ArrayToReplaceV2(
+  inputArray: number[],
+  element: number,
+  substitutionElem: number
+): number[] {
+  const outputArray = [];
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i] === element) {
+      outputArray.push(substitutionElem);
+    } else {
+      outputArray.push(inputArray[i]);
+    }
+  }
+  return outputArray;
+}
+
+console.log(ArrayToReplaceV2([1, 2, 1], 1, 3));
