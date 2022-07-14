@@ -1,13 +1,24 @@
+/**
+ * Two arrays are called similar if one can be obtained from another by swapping at most one pair of elements in one of the arrays.
+
+Given two arrays a and b, check whether they are similar.
+
+ * @param a array of ints
+ * @param b array of ints
+ * @returns boolean representing if a and b are similar. They are similar if one can be obtained from another by swapping at most one element in one of the arrays.
+ */
+
 const AreSimilar = function (a: number[], b: number[]): boolean {
   let t = 0;
   let i = 0;
   for (const x in a) {
     if (a[x] ^ b[x]) {
+      console.log('xor: ', a[x] ^ b[x]);
       ++i;
       t ^= a[x] ^ b[x];
       console.log(t, i);
-      console.log((a[x] >>> 0).toString(2));
-      console.log((b[x] >>> 0).toString(2));
+      // console.log((a[x] >>> 0).toString(2));
+      // console.log((b[x] >>> 0).toString(2));
     }
   }
   if (i === 2 || i === 0) return !t;

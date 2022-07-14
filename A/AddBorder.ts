@@ -1,3 +1,11 @@
+/**
+ * Given a rectangular matrix of characters, add a border of asterisks(*) to it.
+ *
+ *
+ * @param picture Matrix of strings
+ * @returns Matrix of strings with added border of '*'
+ */
+
 function AddBorder(picture: string[]): string[] {
   const frame: string = '*'.repeat(picture[0].length + 2);
   return [frame, ...picture.map((str) => `*${str}*`), frame];
