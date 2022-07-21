@@ -25,3 +25,67 @@ const FileNaming = function (names: string[]): string[] {
 };
 
 console.log(FileNaming(['doc', 'doc', 'image', 'doc(1)', 'doc']));
+
+const FileNamingV2 = (names: string[]): string[] => {
+  const fileSet = new Set<string>();
+
+  return names.map((name) => {
+    let filename = name;
+    let i = 1;
+    while (fileSet.has(filename)) {
+      filename = `${name}(${i++})`;
+    }
+    fileSet.add(filename);
+    return filename;
+  });
+};
+
+console.log(FileNamingV2(['doc', 'doc', 'image', 'doc(1)', 'doc']));
+
+const FileNamingV3 = (names: string[]): string[] => {
+  const dict: { [key: string]: number } = Object.create(null);
+  const finalFilenames: string[] = [];
+
+  for (let i = 0; i < names.length; i++) {
+    const basename = names[i];
+    if (!Object.prototype.hasOwnProperty.call(dict, basename)) {
+      dict[basename] = 0;
+      finalFilenames.push(basename);
+    } else {
+      let result;
+      do {
+        dict[basename]++;
+        result = basename + '(' + dict[basename] + ')';
+      } while (Object.prototype.hasOwnProperty.call(dict, result));
+      finalFilenames.push(result);
+      dict[result] = 0;
+    }
+  }
+  return finalFilenames;
+};
+
+console.log(FileNamingV3(['doc', 'doc', 'image', 'doc(1)', 'doc']));
+
+const FileNamingV4 = (names: string[]): string[] => {
+  const filemap = new Map<string, number>();
+
+  for (let i = 0; i < names.length; i++) {
+    let filename = names[i];
+    if (filemap.has(filename)) {
+      // eslint-disable-next-line prefer-const
+      let count = filemap.get(filename);
+      while (filemap.has(filename + '(' + count + ')')) {
+        count!++;
+      }
+      filemap.set(filename, count! + 1);
+      filename += '(' + count! + ')';
+      names[i] = filename;
+      filemap.set(filename, 1);
+    } else {
+      filemap.set(filename, 1);
+    }
+  }
+  return names;
+};
+
+console.log(FileNamingV4(['doc', 'doc', 'image', 'doc(1)', 'doc']));
