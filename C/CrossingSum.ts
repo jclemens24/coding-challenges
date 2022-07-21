@@ -15,12 +15,9 @@ const CrossingSum = (matrix: number[][], a: number, b: number): number => {
       }
     }
   }
-  const first = rows
-    .slice(0, rows.length - 1)
-    .reduce((prev, curr) => prev + curr, 0);
-
+  const first = rows.reduce((prev, curr) => prev + curr, 0);
   const second = column.reduce((prev, curr) => prev + curr, 0);
-  return first + second;
+  return first + second - matrix[a][b];
 };
 
 console.log(
@@ -56,5 +53,51 @@ console.log(
     ],
     3,
     0
+  )
+);
+
+console.log(
+  CrossingSum(
+    [
+      [17, 54],
+      [20, 39],
+      [98, 87],
+      [20, 91],
+      [2, 82],
+      [16, 47],
+      [65, 100],
+      [99, 81],
+      [90, 92],
+      [64, 39],
+      [18, 31],
+      [70, 52],
+      [76, 88],
+      [24, 48],
+      [18, 53],
+      [96, 91],
+      [28, 11]
+    ],
+    10,
+    1
+  )
+);
+
+const CrossingSumV2 = (matrix: number[][], a: number, b: number): number => {
+  return (
+    matrix[a].reduce((prev, curr) => prev + curr) +
+    matrix.reduce((prev, curr) => prev + curr[b], 0) -
+    matrix[a][b]
+  );
+};
+
+console.log(
+  CrossingSumV2(
+    [
+      [1, 1, 1, 1],
+      [2, 2, 2, 2],
+      [3, 3, 3, 3]
+    ],
+    1,
+    3
   )
 );
