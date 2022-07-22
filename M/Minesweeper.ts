@@ -1,3 +1,10 @@
+/**
+ * In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
+ *
+ * @param matrix - a matrix of boolean values where true represents a mine and false means no mine in that position
+ * @returns a matrix of ints equal to the number of mines in the neighboring cells
+ */
+
 function Minesweeper(matrix: boolean[][]): number[][] {
   const matrixArea: number[][] = [
     [0, 1],
