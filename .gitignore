@@ -1,2 +1,5 @@
 node_modules
 testing.ts
+worker.ts
+index.ts
+build/*
