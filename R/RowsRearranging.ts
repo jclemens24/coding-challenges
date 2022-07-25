@@ -2,7 +2,7 @@
  * Given a rectangular matrix of integers, check if it is possible to rearrange its rows in such a way that all its columns become strictly increasing sequences (read from top to bottom).
  */
 
-function RowsRearranged(matrix: number[][]): void {
+function RowsRearranged(matrix: number[][]): boolean {
   let flag: boolean = true;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix.length; j++) {
@@ -13,7 +13,7 @@ function RowsRearranged(matrix: number[][]): void {
       }
     }
   }
-  console.log(flag);
+  return flag;
 }
 
 RowsRearranged([
