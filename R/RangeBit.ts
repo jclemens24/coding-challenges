@@ -24,7 +24,7 @@ const ConstructRangeArray = function* (a: number, b: number) {
 };
 
 const arry = ConstructRangeArray(2, 7);
-const arrrrr2 = [];
+const arrrrr2: number[] = [];
 for (const value of arry) {
   arrrrr2.push(value);
 }

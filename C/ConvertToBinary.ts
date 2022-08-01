@@ -14,7 +14,7 @@ function ConvertToBinary(num: number) {
     return (num >>> 0).toString(2);
   }
   let number = num;
-  const result = [];
+  const result: number[] = [];
   while (number >= 1) {
     result.unshift(Math.floor(number % 2));
     number /= 2;
