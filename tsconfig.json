@@ -101,7 +101,9 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node",
-    "outDir": "./build"
+    "outDir": "./build",
+    "rootDir": "./",
+    "baseUrl": "."
   },
   "include": ["./index.ts", "./worker.ts"]
 }
