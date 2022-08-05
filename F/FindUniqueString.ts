@@ -14,7 +14,7 @@ export function findUniq(arr: string[]): string {
   const strArr = arr.map((a) => [...new Set(a.toLowerCase())].sort().join(''));
   console.log(strArr);
   return arr.find(
-    (str, i) => strArr.indexOf(strArr[i]) === strArr.lastIndexOf(strArr[i])
+    (_, i) => strArr.indexOf(strArr[i]) === strArr.lastIndexOf(strArr[i])
   )!;
 }
 

@@ -26,3 +26,17 @@ export function humanReadable(seconds: number): string {
 console.log(humanReadable(359999));
 console.log(humanReadable(86399));
 console.log(humanReadable(60));
+
+export const reverse = (a: any[]) => {
+  const reversed: any[] = [];
+  a.forEach((element) => {
+    reversed.unshift(element);
+  });
+  return reversed;
+};
+
+console.log(reverse([1, 2, 3]));
+
+export const reverse2 = (a: any[]) => a.map(a.pop, [...a]);
+
+console.log(reverse2([1, 2, 3]));
