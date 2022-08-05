@@ -12,7 +12,7 @@ Looking at Version 2. If you are wondering how I came up with the number 219, to
 function ReflectString(inputString: string): string {
   const alphabet = 'abcdefghijklmnopqrstuvwxyz';
   const reflection = alphabet.split('').reverse().join('');
-  const ret = [];
+  const ret: string[] = [];
 
   for (const ltr of inputString) {
     const ref = alphabet.indexOf(ltr);
