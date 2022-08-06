@@ -15,8 +15,7 @@ longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 
 export const longest = (s1: string, s2: string): string => {
   const strs = s1.concat(s2);
-  const a = [...new Set(strs)].sort((a, b) => a.localeCompare(b)).join('');
-  return a;
+  return [...new Set(strs)].sort((a, b) => a.localeCompare(b)).join('');
 };
 
 console.log(longest('xyaabbbccccdefww', 'xxxxyyyyabklmopq'));
