@@ -54,7 +54,7 @@ console.log(WeakNumbers(9));
 function WeakNumbersV2(n: number): number[] {
   let count = 0;
   const m = Object.create({});
-  const arr = [];
+  const arr: number[] = [];
 
   for (let i = 1; i <= n; i++) {
     m[i] = 0;

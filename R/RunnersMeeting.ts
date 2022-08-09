@@ -45,7 +45,7 @@ console.log(RunnersMeeting([1, 1000], [23, 22]));
 function RunnersMeetingV2(startPosition: number[], speed: number[]): number {
   const x = (startPosition[1] - startPosition[0]) / (speed[0] - speed[1]);
   let i = 0;
-  const times = [];
+  const times: number[] = [];
 
   while (i < speed.length) {
     times.push(speed[i] * x + startPosition[i]);
