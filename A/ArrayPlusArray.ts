@@ -12,3 +12,7 @@ export function arrayPlusArray(arr1: number[], arr2: number[]): number {
 export const arrayPlusArrayV2 = (arr1: number[], arr2: number[]): number => {
   return arr1.concat(arr2).reduce((prev, curr) => prev + curr, 0);
 };
+
+export const arrayPlusArrayV3 = (arr1: number[], arr2: number[]): number => {
+  return [...arr1, ...arr2].reduce((prev, curr) => prev + curr, 0);
+};
