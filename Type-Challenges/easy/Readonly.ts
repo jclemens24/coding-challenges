@@ -25,7 +25,7 @@ interface ToDo2 {
   description: string;
 }
 
-type MyReadonly<T extends Object> = {
+type MyReadonly<T extends object> = {
   +readonly [Prop in keyof T]: T[Prop];
 };
 
