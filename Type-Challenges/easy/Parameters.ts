@@ -14,7 +14,7 @@ type FunctionParamsType = MyParameters<typeof foo> // [arg1: string, arg2: numbe
 type Parameters<Func extends (...args: any[]) => any> = Func extends (
   ...args: infer Args
 ) => any
-  ? [...Args]
+  ? Args
   : never;
 
 export {};

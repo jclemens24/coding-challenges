@@ -6,4 +6,8 @@
 
 ---
 
+> This repo also contains Type-Challenges from <https://github.com/type-challenges/type-challenges>. You can find these in the type-challenges folder broken up into easy, medium and hard dirs.
+
+---
+
 > New solutions will be added all the time so check back in if you don't find what you're looking for!
