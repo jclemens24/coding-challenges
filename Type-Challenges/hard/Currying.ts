@@ -29,3 +29,34 @@ const add = (a: number, b: number) => a + b;
 const curriedAdd = Currying(add);
 const five = curriedAdd(2)(3);
 const curried1 = Currying((a: string, b: number, c: boolean) => true);
+
+type ClassType<T> = {
+  new (...args: any[]): T;
+};
+
+enum ItemStatuses {
+  Started = 'Started',
+  Pending = 'Pending',
+  Finished = 'Finished'
+}
+
+interface Item {
+  status: ItemStatuses;
+}
+
+const saveItem = async <T extends Item>(
+  data: T,
+  classType: ClassType<T>
+): Promise<void> => {
+  await update<Item>(classType, { status: ItemStatuses.Finished });
+};
+
+const update = async <T extends Item>(
+  classType: ClassType<T>,
+  data: Partial<T>
+): Promise<void> => {
+  console.log(classType);
+  if (data.status !== undefined) {
+    console.log(data.status);
+  }
+};
