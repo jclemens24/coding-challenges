@@ -11,7 +11,7 @@ type Res4 = Unique<[unknown, unknown, any, any, never, never]>; // expected to b
 ```
  */
 
-import { Equal, Expect } from '@type-challenges/utils';
+import type { Equal, Expect } from '@type-challenges/utils';
 
 type IndexOf<
   TArray extends readonly unknown[],
