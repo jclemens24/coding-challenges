@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-redeclare */
 /* eslint-disable no-var */
@@ -480,6 +481,9 @@ export class SingletonCounter {
   }
 }
 
+// Can't instantiate a new instance of this Class
+// @ts-expect-error
+const c = new SingletonCounter();
 var counter = SingletonCounter.getInstance();
 console.log(counter.inc());
 console.log(counter.inc());

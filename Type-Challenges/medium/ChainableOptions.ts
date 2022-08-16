@@ -41,18 +41,61 @@ type ChainableV2<T = {}> = {
   get(): T;
 };
 
-declare const config: Chainable;
+// declare const config: Chainable;
 
-const result = config
-  .option('foo', 123)
-  .option('name', 'type-challenges')
-  .option('bar', { value: 'hello world' })
-  .get();
+// const result = config
+//   .option('foo', 123)
+//   .option('name', 'type-challenges')
+//   .option('bar', { value: 'hello world' })
+//   .get();
 
-declare const config2: ChainableV2;
+// declare const config2: ChainableV2;
 
-const result2 = config2
-  .option(42, 'forty-two')
-  .option('name', 'Jordan')
-  .option('color', 'blue')
-  .get();
+// const result2 = config2
+//   .option(42, 'forty-two')
+//   .option('name', 'Jordan')
+//   .option('color', 'blue')
+//   .get();
+
+type PropEventSource<Type> = {
+  on<Key extends string & keyof Type>(
+    eventName: `${Key}Changed`,
+    callback: (newValue: Type[Key]) => void
+  ): void;
+};
+
+// declare function makeWatchedObject<Type>(
+//   obj: Type
+// ): Type & PropEventSource<Type>;
+
+function makeWatchedObject<Type extends object>(
+  obj: Type
+): Type & PropEventSource<Type> {
+  const newObj = Object.assign(
+    obj,
+    <PropEventSource<typeof obj>>(<unknown>obj)
+  );
+  return newObj;
+}
+
+const person = makeWatchedObject({
+  firstName: 'Saoirse',
+  lastName: 'Ronan',
+  age: 26
+});
+
+const addOn: PropEventSource<typeof person> = {
+  on(eventName, callback) {}
+};
+
+person.on('firstNameChanged', (newName) => {
+  console.log(`new name is ${newName.toUpperCase()}`);
+});
+
+person.on('ageChanged', (newAge) => {
+  if (newAge < 0) {
+    console.warn('warning! negative age');
+  }
+});
+
+console.log(person);
