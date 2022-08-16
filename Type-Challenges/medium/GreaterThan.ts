@@ -31,19 +31,6 @@ type Result2 = GreaterThan<1, 1>;
 type Result3 = GreaterThan<1000, 1000>;
 type Result4 = GreaterThan<10, 1000000>;
 type Result5 = GreaterThan<500, 499>;
+type Result6 = GreaterThan<10000000000, 10>;
 
 export {};
-
-type NumberRange<
-  From extends number,
-  To extends number,
-  Res extends unknown[] = [],
-  Start extends readonly unknown[] = [],
-  End extends readonly unknown[] = []
-> = End['length'] extends To
-  ? [...Res, End['length']][number]
-  : Start['length'] extends From
-  ? NumberRange<From, To, [...Res, End['length']], Start, [...End, unknown]>
-  : NumberRange<From, To, Res, [...Start, any], [...End, any]>;
-
-type result = NumberRange<2, 9>; //  | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
