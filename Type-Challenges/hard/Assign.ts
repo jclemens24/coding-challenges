@@ -81,6 +81,29 @@ type Origin2 = {
   c: 'c';
 };
 
+const target: Target = {
+  a: 'a',
+  d: {
+    hi: 'hi'
+  }
+};
+
+const origin1: Origin1 = {
+  a: 'a1',
+  b: 'b'
+};
+
+const origin2: Origin2 = {
+  b: 'b2',
+  c: 'c'
+};
+
+const A: Assign<Target, [Origin1, Origin2]> = Object.assign<
+  Target,
+  Origin1,
+  Origin2
+>(target, origin1, origin2);
+
 type Answer = Assign<Target, [Origin1, Origin2]>;
 
 // type Answer = {

@@ -53,3 +53,5 @@ new Test().foo();
 class MyClass extends MyMixin(MyBaseClass) {}
 const c = new MyClass();
 c.foo();
+
+export {};
