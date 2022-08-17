@@ -21,5 +21,6 @@ type MinusOne<Num extends number, Min1 extends unknown[] = []> = [
 
 type Zero = MinusOne<1>; // 0
 type FiftyFour = MinusOne<55>; // 54
+type Three = MinusOne<4>;
 
 export {};

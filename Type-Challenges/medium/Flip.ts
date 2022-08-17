@@ -26,4 +26,24 @@ type b = Flip<{ a: 1; b: 2; c: 3 }>; // {1: 'a', 2: 'b', 3: 'c'}
 type c = Flip<{ a: false; b: true }>; // {false: 'a', true: 'b'}
 type CV2 = FlipV2<{ a: false; b: true; c: 100n }>;
 
+enum myEnum {
+  left = 1,
+  right = 2,
+  top = 4,
+  bottom = 8
+}
+
+const myConfig = myEnum.left | myEnum.right;
+
+if (myConfig & myEnum.right) {
+  console.log('Executed');
+  console.log(myConfig);
+  console.log(myEnum.right << 1);
+  console.log(myConfig & myEnum.right);
+  console.log(3 & 2);
+}
+
+type myEnumKey = keyof typeof myEnum;
+const left: myEnumKey = 'left';
+
 export {};

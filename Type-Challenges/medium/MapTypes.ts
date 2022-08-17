@@ -31,7 +31,7 @@ type MapTypes<
   T extends Record<PropertyKey, unknown>,
   R extends Record<'mapFrom' | 'mapTo', unknown>
 > = {
-  [Key in keyof T]: [T[Key]] extends [R['mapFrom']]
+  [Key in keyof T]: T[Key] extends R['mapFrom']
     ? R extends { mapFrom: T[Key] }
       ? R['mapTo']
       : never

@@ -24,7 +24,9 @@ type MyReturnType<T extends (...args: any[]) => any> = T extends (
 
 const fn = (v: boolean) => {
   if (v) return 1;
-  else return 2;
+  else {
+    return 2;
+  }
 };
 
 type fnReturnType = MyReturnType<typeof fn>;
