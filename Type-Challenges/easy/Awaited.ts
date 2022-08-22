@@ -10,7 +10,6 @@ type ExampleType = Promise<string>
 type Result = MyAwaited<ExampleType> // string
 ```
  */
-
 type Awaited<T> = T extends null | undefined
   ? T
   : T extends object & { then(onfulfilled: infer F): any }
@@ -25,8 +24,7 @@ type AwaitedV2<T> = T extends Promise<infer R>
     : R
   : never;
 
-type ExampleType = Promise<string>;
-type Result = Awaited<ExampleType>;
-type ResultV2 = AwaitedV2<ExampleType>;
+type ExampleType = Awaited<Promise<string>>;
+type ExampleType2 = AwaitedV2<Promise<number>>;
 
 export {};

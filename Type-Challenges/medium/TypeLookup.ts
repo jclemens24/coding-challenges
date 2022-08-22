@@ -37,3 +37,5 @@ interface Dog {
 }
 
 type MyDogType = TypeLookup<Cat | Dog, 'dog'>;
+
+export {};
