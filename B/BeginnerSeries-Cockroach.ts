@@ -13,3 +13,4 @@ export function cockroachSpeed(s: number): number {
 }
 
 console.log(cockroachSpeed(1.08));
+console.log(process.execPath);
