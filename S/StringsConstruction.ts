@@ -2,6 +2,15 @@
  * Given two strings a and b, both consisting only of lowercase English letters, your task is to calculate how many strings equal to a can be constructed using only letters from the string b? Each letter can be used only once and in one string only.
  */
 
+// import util from 'util';
+// import { exec } from 'child_process';
+
+// const execute = util.promisify(exec);
+
+// async function ls() {
+//   const { stdout, stderr } = await execute('');
+// }
+
 performance.mark('version-1-start');
 function StringConstruction(a: string, b: string): number {
   let count = 0;
@@ -51,3 +60,4 @@ function StringConstructionV3(a: string, b: string): number {
 }
 
 console.log(StringConstructionV3('abc', 'abccba'));
+console.log(process.env);

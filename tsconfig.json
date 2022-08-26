@@ -104,7 +104,12 @@
     "outDir": "./build",
     "rootDir": "./",
     "baseUrl": ".",
-    "lib": ["ES2021", "ES2022", "es2021", "ESNext"]
+    "lib": ["ES2021", "ES2022", "es2021", "ESNext", "DOM", "DOM.Iterable"]
   },
-  "include": ["./index.ts", "./worker.ts"]
+  "include": ["./index.ts", "./worker.ts", "./**/*"],
+  "ts-node": {
+    "files": true,
+    "scopeDir": "./tsconfig.json",
+    "esm": true
+  }
 }
