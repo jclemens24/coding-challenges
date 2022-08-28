@@ -11,23 +11,44 @@ Please note that Timothy never starts smoking cigarettes that aren't "full size"
  */
 
 export function startSmoking(bars: number, boxes: number): number {
-  const totalBoxes = 10 * bars + boxes;
-  let numberOfCigs = totalBoxes * 18;
-  let rolledCigs: number = 0;
+  const numOfCigs = bars * 10 * 18 + boxes * 18;
+  let rolledCigs: number = numOfCigs;
+  let stubs: number = numOfCigs;
   const CAN_MAKE_STUBS = 5;
-  let result = numberOfCigs;
 
-  while (numberOfCigs > 0) {
-    rolledCigs = Math.floor((numberOfCigs + rolledCigs) / CAN_MAKE_STUBS);
-    console.log(rolledCigs);
-    result += rolledCigs;
-    numberOfCigs -= rolledCigs * CAN_MAKE_STUBS;
+  while (rolledCigs >= 5) {
+    const added = Math.floor(rolledCigs / CAN_MAKE_STUBS);
+    rolledCigs -= added * CAN_MAKE_STUBS;
+    stubs += added;
+    rolledCigs += added;
   }
-  return result;
+  return stubs;
 }
 
 console.log(startSmoking(0, 1));
 console.log(startSmoking(1, 0));
+console.log(startSmoking(1, 1));
+
+export function startSmokingV2(
+  bars: number,
+  boxes: number,
+  result = 0
+): number {
+  const cigarettes = bars * 180 + boxes * 18;
+  if (cigarettes === 0 && result < 5) {
+    return 0;
+  }
+  const rolled = Math.floor(result / 5);
+  return (
+    cigarettes +
+    rolled +
+    startSmokingV2(0, 0, cigarettes + rolled + (result % 5))
+  );
+}
+
+console.log(startSmokingV2(0, 1));
+console.log(startSmokingV2(1, 0));
+console.log(startSmokingV2(1, 1));
 
 export function checkDuplicates(array: number[]): number[] {
   const arr: number[] = [];
@@ -47,17 +68,3 @@ export function checkDuplicates(array: number[]): number[] {
 }
 
 console.log(checkDuplicates([1, 1, 1, 2, 3, 1, 1]));
-
-export function checkDuplicatesV2(array: number[]): number[] {
-  console.log(array.join(''));
-  return (
-    array
-      .join(',')
-      .match(/(\d+,)\1*/g)
-      ?.map((a, i) =>
-        i !== array.length - 1 ? a.split(',').length - 1 : a.length + 1
-      ) || []
-  );
-}
-
-console.log(checkDuplicatesV2([1, 1, 1, 2, 3, 1, 1]));
