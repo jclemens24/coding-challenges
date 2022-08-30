@@ -10,6 +10,13 @@ Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
 Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
 ```
  */
+
+// eslint-disable-next-line no-unused-vars
+interface String {
+  // Declaration needed, don't remove it
+  toJadenCase(): string;
+}
+
 String.prototype.toJadenCase = function () {
   const jadenSentenceArr = this.split(' ') as Array<string>;
   return jadenSentenceArr
@@ -18,11 +25,5 @@ String.prototype.toJadenCase = function () {
     })
     .join(' ');
 };
-
-// eslint-disable-next-line no-unused-vars
-interface String {
-  // Declaration needed, don't remove it
-  toJadenCase(): string;
-}
 
 console.log("How can mirrors be real if our eyes aren't real".toJadenCase());

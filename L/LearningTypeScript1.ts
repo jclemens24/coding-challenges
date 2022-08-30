@@ -567,8 +567,8 @@ export function intersect<T extends Object, U extends Object>(
 console.log(intersect({ a: 1 }, { a: 1, b: 2 }));
 
 export function intersectV2<
-  T extends Object,
-  U extends Object,
+  T extends object,
+  U extends object,
   R extends { [K in keyof U]: K extends keyof T ? U[K] : never }
 >(first: T, second: U): R {
   const result: R = Object.keys(first)
@@ -585,7 +585,7 @@ console.log(intersectV2({ a: 1 }, { a: 1, b: 2 }));
 
 // Lastly, we can do...
 
-export function intersectV3<T extends Object, U extends Object>(
+export function intersectV3<T extends object, U extends object>(
   first: T,
   second: U
 ): T & U {
