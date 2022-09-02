@@ -12,18 +12,18 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
  */
 
 // eslint-disable-next-line no-unused-vars
-interface String {
-  // Declaration needed, don't remove it
-  toJadenCase(): string;
-}
+// interface String {
+//   // Declaration needed, don't remove it
+//   toJadenCase(): string;
+// }
 
-String.prototype.toJadenCase = function () {
-  const jadenSentenceArr = this.split(' ') as Array<string>;
-  return jadenSentenceArr
-    .map((str) => {
-      return str.substring(0, 1).toUpperCase() + str.substring(1);
-    })
-    .join(' ');
-};
+// String.prototype.toJadenCase = function () {
+//   const jadenSentenceArr = this.split(' ') as Array<string>;
+//   return jadenSentenceArr
+//     .map((str) => {
+//       return str.substring(0, 1).toUpperCase() + str.substring(1);
+//     })
+//     .join(' ');
+// };
 
-console.log("How can mirrors be real if our eyes aren't real".toJadenCase());
+// console.log("How can mirrors be real if our eyes aren't real".toJadenCase());
