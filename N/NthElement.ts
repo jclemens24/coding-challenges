@@ -10,7 +10,7 @@ array = [1, 2, 3] and N = 3, but N is outside of the array, so the result is -1.
  */
 
 export function index(array: number[], n: number): number {
-  return Math.pow(array[n], 2);
+  return Math.pow(array[n], 2) || -1;
 }
 
 export function gooseFilter(birds: string[]): string[] {

@@ -1,6 +1,6 @@
 /* eslint-disable no-extend-native */
 /**
- * implement Array.prototype.slice
+ * implement Array.prototype.splice
  */
 
 Array.prototype.splice = function (
