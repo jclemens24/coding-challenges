@@ -47,3 +47,5 @@ type Result = MapTypes<{ iWillTransformToNumber: string }, StringToNumber>;
 
 type StringToDate = { mapFrom: string; mapTo: Date };
 type Result2 = MapTypes<{ numOrDate: string }, StringToNumber | StringToDate>;
+
+export {};

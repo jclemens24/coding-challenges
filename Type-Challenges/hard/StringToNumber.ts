@@ -13,3 +13,5 @@ type StringToNumber<
   : StringToNumber<S, [...Result, 1]>;
 
 type test1 = StringToNumber<'1'>;
+
+export {};
