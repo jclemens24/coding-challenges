@@ -3,15 +3,17 @@
  * Convert a string literal to a number, which behaves like Number.parseInt.
  */
 
-type StringToNumber<
-  S extends string,
-  Result extends unknown[] = []
-> = S extends `${0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9}`
-  ? StringToNumber<S, [...Result, 1]>
-  : `${Result['length']}` extends `${S}`
-  ? Result['length']
-  : StringToNumber<S, [...Result, 1]>;
+import type { Expect, Equal } from '@type-challenges/utils';
 
-type test1 = StringToNumber<'1'>;
+type StringToNumber<S extends string = '0'> =
+  S extends `${infer Num extends number}` ? Num : never;
 
+type cases = [
+  Expect<Equal<StringToNumber<'0'>, 0>>,
+  Expect<Equal<StringToNumber<'5'>, 5>>,
+  Expect<Equal<StringToNumber<'12'>, 12>>,
+  Expect<Equal<StringToNumber<'27'>, 27>>,
+  Expect<Equal<StringToNumber<'18@7_$%'>, never>>,
+  Expect<Equal<StringToNumber, 0>>
+];
 export {};

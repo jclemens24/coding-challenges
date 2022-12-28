@@ -44,6 +44,6 @@ if (myConfig & myEnum.right) {
 }
 
 type myEnumKey = keyof typeof myEnum;
-const left: myEnumKey = 'left';
+const left: myEnumKey = 'left' as const;
 
 export {};

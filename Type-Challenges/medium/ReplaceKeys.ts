@@ -71,3 +71,5 @@ type ReplacedNodes = ReplaceKeys<
   'name' | 'flag',
   { name: number; flag: string }
 >;
+
+export {};
