@@ -60,3 +60,7 @@ const update = async <T extends Item>(
     console.log(data.status);
   }
 };
+
+const item: Item = {
+  status: ItemStatuses.Started
+};
